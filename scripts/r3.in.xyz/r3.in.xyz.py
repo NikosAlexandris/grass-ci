@@ -106,6 +106,15 @@
 #% guisection: Input
 #%End
 #%Option
+#% key: skip
+#% type: integer
+#% required: no
+#% multiple: no
+#% label: Number of header lines to skip at top of input file
+#% answer: 0
+#% guisection: Input
+#%End
+#%Option
 #% key: value_column
 #% type: integer
 #% required: no
@@ -194,6 +203,7 @@ def main():
     x = options['x']
     y = options['y']
     z = options['z']
+    skip = options['skip']
     value_column = options['value_column']
     vrange = options['vrange']
     vscale = options['vscale']
@@ -216,6 +226,8 @@ def main():
         addl_opts['pth'] = '%s' % pth
     if trim:
         addl_opts['trim'] = '%s' % trim
+    if skip:
+        addl_opts['skip'] = '%s' % skip
     if value_column:
         addl_opts['value_column'] = '%s' % value_column
     if vrange:
